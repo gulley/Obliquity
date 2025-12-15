@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth's Obliquity and the Equation of Time</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Earth's Obliquity and the Equation of Time</h1>
+            <p>Visualizing how Earth's axial tilt affects solar vs. clock time</p>
+        </header>
+
+        <div class="main-content">
+            <!-- 3D Visualization -->
+            <div class="viz-container">
+                <div id="scene-3d"></div>
+                <button id="reset-camera-btn" class="reset-btn">Reset View</button>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+                <h2>Controls</h2>
+
+                <div class="control-group">
+                    <label for="obliquity-slider">Angle of Obliquity (degrees)</label>
+                    <div class="input-pair">
+                        <input type="range" id="obliquity-slider"
+                               min="0" max="90" step="0.1" value="23.4">
+                        <input type="number" id="obliquity-number"
+                               min="0" max="90" step="0.1" value="23.4">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="numdays-slider">Number of Days in Year</label>
+                    <div class="input-pair">
+                        <input type="range" id="numdays-slider"
+                               min="8" max="80" step="1" value="16">
+                        <input type="number" id="numdays-number"
+                               min="8" max="80" step="1" value="16">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="currentday-slider">Current Day of Year</label>
+                    <div class="input-pair">
+                        <input type="range" id="currentday-slider"
+                               min="0" max="15" step="1" value="0">
+                        <input type="number" id="currentday-number"
+                               min="0" max="15" step="1" value="0">
+                    </div>
+                </div>
+
+                <div class="discrepancy-display">
+                    <h3>Time Discrepancy</h3>
+                    <div class="discrepancy-value">
+                        <strong>Angle:</strong> <span id="angle-discrepancy">0.00°</span>
+                    </div>
+                    <div class="discrepancy-value">
+                        <strong>Time:</strong> <span id="time-discrepancy">0.00 minutes</span>
+                    </div>
+                </div>
+
+                <div class="animation-controls">
+                    <button id="play-btn">Play</button>
+                    <button id="pause-btn">Pause</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script src="./js/math.js"></script>
+    <script src="./js/scene3d.js"></script>
+    <script src="./js/controls.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
